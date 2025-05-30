@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 
