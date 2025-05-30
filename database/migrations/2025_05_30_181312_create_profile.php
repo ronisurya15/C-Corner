@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
             $table->string('gender');
             $table->string('email');
             $table->string('university_name');
             $table->string('majors');
             $table->string('prodi');
             $table->date('date_of_birth');
+
+            // Relations
+            $table->foreignId('user_id');
         });
     }
 

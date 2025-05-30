@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/testing', function () {
-    return response()->json([
-        'status' => true
-    ]);
+Route::prefix('postingan')->group(function () {
+    Route::get('list-data', [PostinganController::class, 'index']);
+    Route::get('create-data', [PostinganController::class, 'create']);
 });
