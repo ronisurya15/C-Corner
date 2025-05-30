@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
-            $table->full_name();
-            $table->gender();
-            $table->email();
-            $table->university_name();
-            $table->majors();
-            $table->prodi();
-            $table->date_of_birth();
+            $table->string('full_name');
+            $table->string('gender');
+            $table->string('email');
+            $table->string('university_name');
+            $table->string('majors');
+            $table->string('prodi');
+            $table->date('date_of_birth');
         });
     }
 
