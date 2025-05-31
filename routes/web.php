@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -45,4 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/reset-password', [AuthController::class, 'showManualReset'])->name('manual.reset-password');
     Route::post('/reset-password', [AuthController::class, 'manualReset']);
+});
+Route::prefix('category')->group(function () {
+    Route::get('tampil', [CategoryController::class, 'ListCategory']);
+    Route::get('tambah', [CategoryController::class, 'TambahCategory']);
+    Route::get('edit', [CategoryController::class, 'EditCategory']);
 });
