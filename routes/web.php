@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +29,14 @@ Route::prefix('category')->group(function () {
     Route::get('tampil', [CategoryController::class, 'ListCategory']);
     Route::get('tambah', [CategoryController::class, 'TambahCategory']);
     Route::get('edit', [CategoryController::class, 'EditCategory']);
+});
+Route::prefix('posts')->group(function () {
+    Route::get('tampil', [PostsController::class, 'ListPosts']);
+    Route::get('tambah', [PostsController::class, 'TambahPosts']);
+    Route::get('edit', [PostsController::class, 'EditPosts']);
+});
+Route::prefix('forum')->group(function () {
+    Route::get('tampil', [ForumController::class, 'ListForum']);
+    Route::get('tambah', [ForumController::class, 'TambahForum']);
+    Route::get('edit', [ForumController::class, 'EditForum']);
 });
