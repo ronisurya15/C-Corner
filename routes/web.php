@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('postingan')->group(function () {
-    Route::get('list-data', [PostinganController::class, 'index']);
-    Route::get('create-data', [PostinganController::class, 'create']);
+
+
+//route auth
+Route::prefix('auth')->group(function () {
+    Route::get('/signin', [AuthController::class, 'showSignin'])->name('login');
+    Route::post('/signin', [AuthController::class, 'signin']);
+    Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+    Route::post('/signup', [AuthController::class, 'signup']);
+    Route::get('/reset-password', [AuthController::class, 'showReset']);
+    Route::post('/reset-password', [AuthController::class, 'reset']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+//route dashboard
+Route::middleware('auth')->get('/dashboard', function () {
+    return view('dashboard');
+});
+
+//route profile
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'detail'])->name('detail');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/reset-password', [AuthController::class, 'showManualReset'])->name('manual.reset-password');
+    Route::post('/reset-password', [AuthController::class, 'manualReset']);
 });
