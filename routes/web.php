@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CategoryController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Mail\Mailables\Content;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +65,9 @@ Route::prefix('forum')->group(function () {
     Route::get('tampil', [ForumController::class, 'ListForum']);
     Route::get('tambah', [ForumController::class, 'TambahForum']);
     Route::get('edit', [ForumController::class, 'EditForum']);
+});
+Route::prefix('content')->group(function () {
+    Route::get('tampil', [ContentController::class, 'ListContent']);
+    Route::get('tambah', [ContentController::class, 'TambahContent']);
+    Route::get('edit', [ContentController::class, 'EditContent']);
 });
