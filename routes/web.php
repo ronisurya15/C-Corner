@@ -4,11 +4,9 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Mail\Mailables\Content;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 //route auth
 Route::prefix('auth')->group(function () {
     Route::get('/signin', [AuthController::class, 'showSignin'])->name('login');
@@ -38,12 +34,12 @@ Route::prefix('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-//route dashboard
+// Route dashboard
 Route::middleware('auth')->get('/dashboard', function () {
     return view('dashboard');
 });
 
-//route profile
+// Route profile
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'detail'])->name('detail');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit');
@@ -51,21 +47,25 @@ Route::middleware('auth')->group(function () {
     Route::get('/reset-password', [AuthController::class, 'showManualReset'])->name('manual.reset-password');
     Route::post('/reset-password', [AuthController::class, 'manualReset']);
 });
+
 Route::prefix('category')->group(function () {
     Route::get('tampil', [CategoryController::class, 'ListCategory']);
     Route::get('tambah', [CategoryController::class, 'TambahCategory']);
     Route::get('edit', [CategoryController::class, 'EditCategory']);
 });
+
 Route::prefix('posts')->group(function () {
     Route::get('tampil', [PostsController::class, 'ListPosts']);
     Route::get('tambah', [PostsController::class, 'TambahPosts']);
     Route::get('edit', [PostsController::class, 'EditPosts']);
 });
+
 Route::prefix('forum')->group(function () {
     Route::get('tampil', [ForumController::class, 'ListForum']);
     Route::get('tambah', [ForumController::class, 'TambahForum']);
     Route::get('edit', [ForumController::class, 'EditForum']);
 });
+
 Route::prefix('content')->group(function () {
     Route::get('tampil', [ContentController::class, 'ListContent']);
     Route::get('tambah', [ContentController::class, 'TambahContent']);
