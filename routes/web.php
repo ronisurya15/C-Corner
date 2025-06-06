@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('category')->group(function () {
     Route::get('tampil', [CategoryController::class, 'ListCategory']);
-    Route::get('tambah', [CategoryController::class, 'TambahCategory']);
+    Route::get('tambah', [CategoryController::class, 'TambahCategory'])->name('category.create');
     Route::get('edit', [CategoryController::class, 'EditCategory']);
 });
 

@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@section('content')
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-white bg-dark d-flex justify-content-between align-items-center">
+            <span>Daftar Kategori</span>
+            <a href="{{ route('category.create') }}" class="btn btn-sm btn-primary">Tambah</a>
+        </div>
 
-<body>
-    halo sayang
-</body>
-
-</html>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Opsi</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+@endsection
