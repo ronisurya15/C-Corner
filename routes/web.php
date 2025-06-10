@@ -64,6 +64,8 @@ Route::prefix('forum')->group(function () {
     Route::get('tampil', [ForumController::class, 'ListForum']);
     Route::get('tambah', [ForumController::class, 'TambahForum']);
     Route::get('edit', [ForumController::class, 'EditForum']);
+    Route::post('/forum', [ForumController::class, 'store'])->name('forum.store');
+
 });
 
 Route::prefix('content')->group(function () {
