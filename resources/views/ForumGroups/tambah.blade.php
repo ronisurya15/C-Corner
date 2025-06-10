@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-header text-white bg-dark">
-            <h2 class="mb-0">Tambah Forum Jurusan</h2>
+            <h2 class="mb-0">Forum Jurusan</h2>
         </div>
         <div class="card-body">
             <form action="{{ route('forum.store') }}" method="POST">
@@ -16,7 +16,7 @@
                     <input type="text" id="jurusan_forum" name="jurusan_forum" class="form-control" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">klik di sini</button>
             </form>
         </div>
     </div>
