@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('majors');
             $table->string('prodi');
             $table->date('date_of_birth');
+            $table->timestamps();
 
             // Relations
             $table->foreignId('user_id');

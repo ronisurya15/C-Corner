@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string('views_count');
             $table->string('media_url');
             $table->string('caption');
-            $table->string('created_at');
+            $table->timestamps();
 
             //Relations
-            $table->timestamps();
-            $table->foreign('user_id');
+            $table->foreignId('user_id');
         });
     }
 

@@ -13,10 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('forum_groups', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('description');
+            $table->string('slug')->unique();
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
+
+            //Relations
+            $table->foreignId('profile_id');
+            $table->foreignId('posts_category_id');
         });
     }
 
@@ -27,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forum_groups');
+        Schema::dropIfExists('posts');
     }
 };

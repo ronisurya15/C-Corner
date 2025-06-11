@@ -55,9 +55,9 @@ Route::prefix('category')->group(function () {
 });
 
 Route::prefix('posts')->group(function () {
-    Route::get('tampil', [PostsController::class, 'ListPosts']);
-    Route::get('tambah', [PostsController::class, 'TambahPosts']);
-    Route::get('edit', [PostsController::class, 'EditPosts']);
+    Route::get('tampil', [PostsController::class, 'ListPosts'])->name('posts.index');
+    Route::get('tambah', [PostsController::class, 'TambahPosts'])->name('posts.create');
+    Route::get('edit', [PostsController::class, 'EditPosts'])->name('posts.edit');
 });
 
 Route::prefix('forum')->group(function () {
@@ -65,11 +65,4 @@ Route::prefix('forum')->group(function () {
     Route::get('tambah', [ForumController::class, 'TambahForum']);
     Route::get('edit', [ForumController::class, 'EditForum']);
     Route::post('/forum', [ForumController::class, 'store'])->name('forum.store');
-
-});
-
-Route::prefix('content')->group(function () {
-    Route::get('tampil', [ContentController::class, 'ListContent']);
-    Route::get('tambah', [ContentController::class, 'TambahContent']);
-    Route::get('edit', [ContentController::class, 'EditContent']);
 });
