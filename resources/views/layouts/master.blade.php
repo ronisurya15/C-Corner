@@ -27,7 +27,7 @@
                         <a class="nav-link" aria-current="page" href="#">Forum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Kategori Postingan</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('category.index') }}">Kategori Postingan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('posts.index') }}">Postingan</a>

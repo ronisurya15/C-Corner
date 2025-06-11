@@ -49,9 +49,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('category')->group(function () {
-    Route::get('tampil', [CategoryController::class, 'ListCategory']);
+    Route::get('tampil', [CategoryController::class, 'ListCategory'])->name('category.index');
     Route::get('tambah', [CategoryController::class, 'TambahCategory'])->name('category.create');
-    Route::get('edit', [CategoryController::class, 'EditCategory']);
+    Route::get('edit', [CategoryController::class, 'EditCategory'])->name('category.edit');
 });
 
 Route::prefix('posts')->group(function () {

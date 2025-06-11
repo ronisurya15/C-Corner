@@ -12,11 +12,16 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Nama</th>
+                        <th>Nama Kategori</th>
                         <th>Opsi</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td>Edukasi</td>
+                        <td><a href="{{ route('category.edit') }}" class="btn btn-warning btn-sm">Edit</a> <a class="btn btn-danger btn-sm">Hapus</a></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>

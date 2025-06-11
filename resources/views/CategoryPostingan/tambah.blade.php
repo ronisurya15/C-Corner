@@ -6,16 +6,20 @@
         <div class="col-sm-6 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header text-white bg-dark d-flex justify-content-between align-items-center">
-                    <span>Daftar Kategori</span>
-                    <a href="{{ route('category.create') }}" class="btn btn-sm btn-primary">Tambah</a>
+                    <span>Tambah Kategori</span>
+                    <a href="{{ route('category.index') }}" class="btn btn-sm btn-warning">Kembali</a>
                 </div>
 
                 <div class="card-body">
                     <form action="">
                         <div class="form-group">
-                            <label for="">Nama Kategori</label>
-                            <input type="text" class="form-controll">
+                            <label for="">Nama Kategori <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="title" placeholder="Masukkan Kategori" require>
                         </div>
+                        <div class="mt-2 mb-2">
+                            <hr>
+                        </div>
+                        <button class="btn btn-sm btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>
