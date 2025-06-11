@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@section('content')
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header text-white bg-dark d-flex justify-content-between align-items-center">
+                    <span>Edit Forum</span>
+                    <a href="{{ route('forum.index') }}" class="btn btn-sm btn-warning">Kembali</a>
+                </div>
 
-<body>
-    ini edit
-</body>
-
-</html>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Nama Forum <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="title" placeholder="forum" require>
+                        </div>
+                        <div class="mt-2 mb-2">
+                            <hr>
+                        </div>
+                        <button class="btn btn-sm btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

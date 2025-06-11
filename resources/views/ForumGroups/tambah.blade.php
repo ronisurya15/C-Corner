@@ -2,22 +2,27 @@
 
 @section('content')
 <div class="container mt-4">
-    <div class="card">
-        <div class="card-header text-white bg-dark">
-            <h2 class="mb-0">Forum Jurusan</h2>
-        </div>
-        <div class="card-body">
-            <form action="{{ route('forum.store') }}" method="POST">
-                @csrf
-
-                {{-- Nama Jurusan --}}
-                <div class="mb-3">
-                    <label for="jurusan_forum" class="form-label">Jurusan:</label>
-                    <input type="text" id="jurusan_forum" name="jurusan_forum" class="form-control" required>
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header text-white bg-dark d-flex justify-content-between align-items-center">
+                    <span>Tambah Forum</span>
+                    <a href="{{ route('forum.index') }}" class="btn btn-sm btn-warning">Kembali</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary">klik di sini</button>
-            </form>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">FORUM <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="title" placeholder="Masukkan Forum" require>
+                        </div>
+                        <div class="mt-2 mb-2">
+                            <hr>
+                        </div>
+                        <button class="btn btn-sm btn-primary">Simpan</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
