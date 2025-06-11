@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'detail'])->name('detail');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::get('/reset-password', [AuthController::class, 'showManualReset'])->name('manual.reset-password');
+    Route::get('/reset-password', [AuthController::class, 'showReset'])->name('manual.reset-password');
     Route::post('/reset-password', [AuthController::class, 'manualReset']);
 });
 
@@ -64,5 +64,4 @@ Route::prefix('forum')->group(function () {
     Route::get('tampil', [ForumController::class, 'ListForum'])->name('forum.index');
     Route::get('tambah', [ForumController::class, 'TambahForum'])->name('forum.create');
     Route::get('edit', [ForumController::class, 'EditForum'])->name('forum.edit');
-    
 });

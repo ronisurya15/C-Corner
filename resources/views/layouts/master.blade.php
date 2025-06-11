@@ -21,7 +21,7 @@
                         <a class="nav-link" aria-current="page" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Profil</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('detail') }}">Profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('forum.index') }}">Forum</a>
@@ -36,7 +36,7 @@
                         <a class="nav-link" aria-current="page" href="#">Masuk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Keluar</a>
+                        <a class="nav-link" aria-current="page" href="{{ url('/auth/logout') }}">Keluar</a>
                     </li>
                 </ul>
             </div>
