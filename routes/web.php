@@ -35,9 +35,9 @@ Route::prefix('auth')->group(function () {
 });
 
 // Route dashboard
-Route::middleware('auth')->get('/dashboard', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('home');
 
 // Route profile
 Route::middleware('auth')->group(function () {
