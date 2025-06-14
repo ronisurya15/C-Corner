@@ -11,7 +11,8 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('category.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="">Nama Kategori <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="title" placeholder="Masukkan Kategori" require>

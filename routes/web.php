@@ -51,7 +51,10 @@ Route::middleware('auth')->group(function () {
 Route::prefix('category')->group(function () {
     Route::get('tampil', [CategoryController::class, 'ListCategory'])->name('category.index');
     Route::get('tambah', [CategoryController::class, 'TambahCategory'])->name('category.create');
-    Route::get('edit', [CategoryController::class, 'EditCategory'])->name('category.edit');
+    Route::get('edit/{id}', [CategoryController::class, 'EditCategory'])->name('category.edit');
+    Route::post('store', [CategoryController::class, 'store'])->name('category.store');
+    Route::post('{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 });
 
 Route::prefix('posts')->group(function () {
@@ -65,6 +68,6 @@ Route::prefix('forum')->group(function () {
     Route::get('tambah', [ForumController::class, 'TambahForum'])->name('forum.create');
     Route::post('store', [ForumController::class, 'store'])->name('forum.store');
     Route::get('edit/{id}', [ForumController::class, 'EditForum'])->name('forum.edit');
-    Route::post('update/{id}', [ForumController::class, 'update'])->name('forum.update');
+    Route::post('{id}', [ForumController::class, 'update'])->name('forum.update');
     Route::delete('{id}', [ForumController::class, 'destroy'])->name('forum.destroy');
 });
