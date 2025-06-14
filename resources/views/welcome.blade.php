@@ -4,38 +4,24 @@
 <div class="container mt-5">
     <h2 class="mb-4 text-center">Daftar Postingan</h2>
     <div class="row">
+        @foreach ($data as $item)
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Tips Belajar Efektif</h5>
-                    <p class="card-text">Cara belajar yang terbukti meningkatkan konsentrasi dan pemahaman materi.</p>
-                    <span class="badge bg-primary mb-3">Edukasi</span>
+                    <h5 class="card-title">{{ $item->title }}</h5>
+                    <p class="card-text">{{ $item->description }}</p>
+                    <span class="badge bg-primary mb-3">{{ $item->postCategory->title }}</span>
+                    <span class="badge bg-info mb-3">{{ $item->forum->title }}</span>
                     <div class="text-muted small">
-                        <div><i class="bi bi-person-fill"></i> Andi Mahasiswa</div>
-                        <div><i class="bi bi-calendar-event"></i> 10 Juni 2025</div>
-                        <div><i class="bi bi-heart-fill text-danger"></i> 125</div>
+                        <div><i class="bi bi-person-fill"></i> {{ $item->user->name }}</div>
+                        <div><i class="bi bi-calendar-event"></i> {{ $item->created_at->format('d F Y H:i') }}</div>
+                        <div><i class="bi bi-heart-fill text-danger"></i> {{ rand(1000, 9999) }}</div>
+                        <div><i class="bi bi-chat-square-dots text-info"></i> {{ rand(1000, 9999) }}</div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Kartu Postingan 2 -->
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Manajemen Waktu Kuliah & Kerja</h5>
-                    <p class="card-text">Trik menjaga keseimbangan antara kuliah dan pekerjaan tanpa burnout.</p>
-                    <span class="badge bg-success mb-3">Produktivitas</span>
-                    <div class="text-muted small">
-                        <div><i class="bi bi-person-fill"></i> Siti Kampus</div>
-                        <div><i class="bi bi-calendar-event"></i> 8 Juni 2025</div>
-                        <div><i class="bi bi-heart-fill text-danger"></i> 89</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tambahkan kartu postingan lainnya di sini... -->
+        @endforeach
     </div>
 </div>
 @endsection
