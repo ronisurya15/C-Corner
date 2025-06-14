@@ -63,5 +63,8 @@ Route::prefix('posts')->group(function () {
 Route::prefix('forum')->group(function () {
     Route::get('tampil', [ForumController::class, 'ListForum'])->name('forum.index');
     Route::get('tambah', [ForumController::class, 'TambahForum'])->name('forum.create');
-    Route::get('edit', [ForumController::class, 'EditForum'])->name('forum.edit');
+    Route::post('store', [ForumController::class, 'store'])->name('forum.store');
+    Route::get('edit/{id}', [ForumController::class, 'EditForum'])->name('forum.edit');
+    Route::post('update/{id}', [ForumController::class, 'update'])->name('forum.update');
+    Route::delete('{id}', [ForumController::class, 'destroy'])->name('forum.destroy');
 });

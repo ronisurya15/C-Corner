@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
-            //Relations
+            // Relations
             $table->foreignId('profile_id');
             $table->foreignId('posts_category_id');
         });

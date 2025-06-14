@@ -11,10 +11,11 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('forum.update', $data->id) }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="">Nama Forum <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="title" placeholder="forum" require>
+                            <input type="text" class="form-control" name="title" placeholder="Masukkan Nama Forum" require value="{{ $data->title }}">
                         </div>
                         <div class="mt-2 mb-2">
                             <hr>
