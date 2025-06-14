@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->string('email');
-            $table->string('university_name');
-            $table->string('majors');
-            $table->string('prodi');
-            $table->date('date_of_birth');
+            $table->string('university_name')->nullable();
+            $table->string('majors')->nullable();
+            $table->string('prodi')->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->timestamps();
 
             // Relations

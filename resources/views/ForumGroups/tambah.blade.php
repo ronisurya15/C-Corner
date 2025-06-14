@@ -15,7 +15,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Nama Forum <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="title" placeholder="Masukkan Nama Forum" require>
+                            <input type="text" class="form-control" name="title" placeholder="Masukkan Nama Forum" required>
                         </div>
                         <div class="mt-2 mb-2">
                             <hr>

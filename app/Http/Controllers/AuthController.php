@@ -7,8 +7,6 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-
 
 class AuthController extends Controller
 {
@@ -24,7 +22,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed',
+            'password' => 'required',
         ]);
 
         $user = User::create([
@@ -36,15 +34,11 @@ class AuthController extends Controller
         // Buat profile default kosong
         Profile::create([
             'user_id'         => $user->id,
-            'gender'          => '',
             'email'           => $user->email,
-            'university_name' => '',
-            'majors'          => '',
-            'prodi'           => '',
             'date_of_birth'   => now()->toDateString(),
         ]);
 
-        return redirect('/auth/signin')->with('status', 'Signup berhasil, silakan login.');
+        return redirect()->route('signin')->with('success', 'Pendaftaran berhasil, silakan login untuk melanjutkan.');
     }
 
     //signin view
@@ -65,7 +59,8 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/dashboard');
+
+            return redirect()->route('home')->with('success', 'Selamat datang, ' . auth()->user()->name . '!');
         }
 
         return back()->withErrors([

@@ -23,8 +23,9 @@ return new class extends Migration
             $table->softDeletes();
 
             // Relations
-            $table->foreignId('profile_id');
+            $table->foreignId('user_id');
             $table->foreignId('posts_category_id');
+            $table->foreignId('forum_id');
         });
     }
 

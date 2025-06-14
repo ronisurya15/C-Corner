@@ -20,23 +20,29 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('home') }}">Beranda</a>
                     </li>
+                    @if(auth()->check())
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('detail') }}">Profil</a>
                     </li>
+
+                    @if(auth()->user()->id == 1)
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('forum.index') }}">Forum</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('category.index') }}">Kategori Postingan</a>
                     </li>
+                    @endif
+
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('posts.index') }}">Postingan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Masuk</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ url('/auth/logout') }}">Keluar</a>
+                    </li>
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('login') }}">Masuk</a>
                     </li>
                 </ul>
             </div>

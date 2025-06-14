@@ -15,7 +15,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Nama Kategori <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="title" placeholder="Masukkan Kategori" require value="{{ $data->title }}">
+                            <input type="text" class="form-control" name="title" placeholder="Masukkan Kategori" required value="{{ $data->title }}">
                         </div>
                         <div class="mt-2 mb-2">
                             <hr>
